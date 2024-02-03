@@ -1,0 +1,139 @@
+﻿@model Hala.Models.Domain.Attendance
+
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col">
+    <partial name="_Notification"></partial>
+    <div class="row p-md-4 pt-3 shadow m-md-4">
+        <div class="col-12 d-inline-flex mb-3">
+            <partial name="_UserName"></partial>
+
+        </div>
+        <div class="col">
+            <div class="card text-start" style="background-color: #d6cdc6">
+                <div class="card-header">
+                    <h2>Today's Attendance</h2>
+                </div>
+                @if(Model == null)
+                {
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center"><h5>Checked-in <br> At 00:00</h5></div>
+                            <div class="col text-center"><h5>Checked-Out <br> At 00:00</h5></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col text-center">
+                                <form asp-controller="Home" asp-action="CheckIn">
+                                    <input type="hidden" asp-for="Isvalid" value="true">
+                                    <button type="submit" class="btn btn-success" id="ontime-in">Check-In</button>
+                                </form>
+                                <button type="button" class="btn btn-success" id="late-in" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Late Check-In</button>
+                            </div>
+                            <div class="col text-center">
+                                <form asp-controller="Home" asp-action="CheckOut">
+                                    <input type="hidden" asp-for="Isvalid" value="true">
+                                    <button type="submit" class="btn btn-danger" id="ontime-out">Check-Out</button>
+                                </form>
+                                <button type="button" class="btn btn-danger" id="early-out" data-bs-toggle="modal" data-bs-target="#exampleModal">Early Check-Out</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center"><h5>Checked-in <br> At @Model.CheckedIn_at.Hour : @Model.CheckedIn_at.Minute</h5></div>
+                            <div class="col text-center"><h5>Checked-Out <br> At @Model.CheckedOut_at.Hour : @Model.CheckedOut_at.Minute</h5></div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        @if (Model.CheckedIn_at.Hour == 0 && Model.CheckedIn_at.Minute == 0)
+                        {
+                            <div class="col text-center">
+                                <form asp-controller="Home" asp-action="CheckIn">
+                                    <input type="hidden" asp-for="Isvalid" value="true">
+                                    <button type="submit" class="btn btn-success" id="ontime-in">Check-In</button>
+                                </form>
+                                <button type="button" class="btn btn-success" id="late-in" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Late Check-In</button>
+                            </div>
+                        }
+
+                        @if (Model.CheckedOut_at.Hour == 0 && Model.CheckedOut_at.Minute == 0)
+                        {
+                            <div class="col text-center">
+                                <form asp-controller="Home" asp-action="CheckOut">
+                                    <input type="hidden" asp-for="Isvalid" value="true">
+                                    <button type="submit" class="btn btn-danger" id="ontime-out">Check-Out</button>
+                                </form>
+                                <button type="button" class="btn btn-danger" id="early-out" data-bs-toggle="modal" data-bs-target="#exampleModal">Early Check-Out</button>
+                            </div> 
+                        }
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- late-in Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="me-1 fa-solid fa-circle-exclamation text-danger"></i>You checked in late</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-controller="Home" asp-action="LateCheckIn">
+                <input type="hidden" asp-for="Isvalid" value="true">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Provide Reason Why You Checked In Late</label>
+                        <textarea asp-for="LateCheckedIn_reason" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- early-out Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-circle-exclamation text-danger"></i> You checked out early</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-controller="Home" asp-action="EarlyCheckOut">
+                <input type="hidden" asp-for="Isvalid" value="true">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Provide Reason Why You Checked out early</label>
+                        <textarea asp-for="EarlyCheckedOut_reason" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/site.js"></script>
+}

@@ -1,0 +1,146 @@
+﻿@model Hala.Models.Domain.Attendance
+@{
+    ViewData["Title"] = "Attendance";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col shadow m-md-3 pb-md-5" style="border-radius:10px; background-color: #E2D9D2;">
+    <div class="row pt-3 m-md-2 justify-content-center ">
+        <div class="col-lg-10">
+                
+            <h5>Enter national id and date</h5>
+            <form asp-controller="Admin" asp-action="Attendance" class="row g-3">
+                <div class="col-auto col-md-4">
+                    <div class="form-floating mb-md-3">
+                        <input type="number" asp-for="ApplicationUser.NationalId" required class="form-control Search-input" id="floatingInput" placeholder="National Id">
+                        <label for="floatingInput">National Id</label>
+                    </div>
+                </div>
+                <div class="col-auto col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="date" asp-for="Date" required class="form-control Search-input" id="floatingInput" placeholder="Date">
+                        <label for="floatingInput">Date</label>
+                    </div>
+                </div>
+                <div class="col-auto col-md-4 my-auto">
+                    <button type="submit" class="btn btn-secondary">Search</button>
+                </div>
+            </form>
+            @if (Model == null)
+            {
+            <div class="row mx-1 mx-md-5 justify-content-center py-5">
+                <div class="col-12 col-md-10 col-lg-7 p-4">
+                    <div class="row">
+                        <div class="card text-center mx-auto border border-warning" style="width: 18rem; background-color: #f0d7c4;">
+                            <div class="card-body">
+                                <i class="fas fa-regular fa-exclamation-circle mb-2 " style="color: #d1d100; font-size: 3rem;"></i>
+                                <h4 class="card-text">Important Note</h4>
+                                <p class="card-text">If you search for a specific day with a valid national id and found nothing it means the employee is absent on that day.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+            else{
+            <div class="card mt-2 mb-4 border border-2 border-secondary" style="background-color: #e9e9e9; border-radius:15px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Full Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.ApplicationUser.FirstName @Model.ApplicationUser.LastName</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Id</p>
+                        </div>
+                        <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.ApplicationUser.NationalId</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Date</p>
+                        </div>
+                        <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.Date.Day - @Model.Date.Month - @Model.Date.Year</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Checked In At</p>
+                        </div>
+                        <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.CheckedIn_at</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Checked Out At</p>
+                        </div>
+                        <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.CheckedOut_at</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Status</p>
+                        </div>
+                        <div class="col-sm-9">
+                                @if (Model.Status == "PRN")
+                                {
+                                    <p class="text-muted mb-0">Checked-in but didn't Check-out</p>
+                                }
+                                else if (Model.Status == "LAN")
+                                {
+                                    <p class="text-muted mb-0">Checked-in late and didn’t check-out</p>
+                                }
+                                else if (Model.Status == "PRV")
+                                {
+                                    <p class="text-muted mb-0">Checked-in on time and checked-out on time</p>
+                                }
+                                else if (Model.Status == "LAV")
+                                {
+                                    <p class="text-muted mb-0">Checked-in late and checked-out on time</p>
+                                }
+                                else if (Model.Status == "EAV")
+                                {
+                                    <p class="text-muted mb-0">Checked-in on time and checked-out early</p>
+                                }
+                                else if (Model.Status == "LL")
+                                {
+                                    <p class="text-muted mb-0">Checked-in late and checked-out early</p>
+                                }
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Early Out Reason</p>
+                        </div>
+                        <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.EarlyCheckedOut_reason</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Late In Reason</p>
+                        </div>
+                        <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.LateCheckedIn_reason</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+</div>

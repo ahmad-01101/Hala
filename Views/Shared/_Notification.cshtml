@@ -1,0 +1,70 @@
+﻿@if (ViewBag.isCheckedIn == true)
+{
+    <div class="toast position-fixed bottom-0 end-0 m-2 z-index-3" style="z-index: 9999;" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle fa-lg text-success pe-1"></i>
+            <strong class="me-auto">You Checked-In Successfully</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+        </div>
+    </div>
+}
+@if (ViewBag.isCheckedOut == true)
+{
+    <div class="toast position-fixed bottom-0 end-0 m-2 z-index-3" style="z-index: 9999;" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle fa-lg text-success pe-1"></i>
+            <strong class="me-auto">You Checked-Out Successfully</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+        </div>
+    </div>
+}
+@if (ViewBag.isCheckOut_WithOut_CheckingIn == true)
+{
+    <div class="toast position-fixed bottom-0 end-0 m-2 z-index-3" style="z-index: 9999;" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fa-solid fa-circle-exclamation text-danger pe-1"></i>
+            <strong class="me-auto">You can't checkout without checking in</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+        </div>
+    </div>
+}
+@if (ViewBag.isDeleteed == true)
+{
+    <div class="toast position-fixed bottom-0 end-0 m-2 z-index-3" style="z-index: 9999;" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle fa-lg text-success pe-1"></i>
+            <strong class="me-auto">Employee deleted successfully</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+        </div>
+    </div>
+}
+@if (ViewBag.isAdded == true)
+{
+    <div class="toast position-fixed bottom-0 end-0 m-2 z-index-3" style="z-index: 9999;" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle fa-lg text-success pe-1"></i>
+            <strong class="me-auto">A new employee added successfully</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+        </div>
+    </div>
+}
+@if (ViewBag.isUpdated == true)
+{
+    <div class="toast position-fixed bottom-0 end-0 m-2 z-index-3" style="z-index: 9999;" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="fas fa-check-circle fa-lg text-success pe-1"></i>
+            <strong class="me-auto">Changes saved successfully</strong>
+            <small></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="close"></button>
+        </div>
+    </div>
+}
+<script>
+    const myToast = new bootstrap.Toast('.toast');
+    myToast.show();
+</script>

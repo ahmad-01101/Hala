@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Not Found";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col shadow m-md-3 pb-md-5" style="border-radius:10px; background-color: #E2D9D2;">
+    <div class="row mx-1 mx-md-5 justify-content-center py-5">
+        <div class="col-12 col-md-8 p-4" style="border-radius:10px; background-color: #c9beb5;">
+            <div class="row">
+                <div class="col-12 text-center pt-4 pb-3">
+                    <i class="fas fa-regular fa-exclamation-circle " style="color: #ffff00; font-size: 3.7rem;"></i>
+                </div>
+                <div class="col-12 text-center">
+                    <h3><strong>No employee found with this Id</strong></h3>
+                    <a asp-controller="Admin" asp-action="Employees" class="text-dark link-dark  text-decoration-none"><strong><i class="fas fa-arrow-left pe-1"></i>Back To Employees</strong></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

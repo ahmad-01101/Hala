@@ -1,0 +1,61 @@
+﻿@model List<Hala.Models.EmployeesVM>
+    
+@{
+ViewData["Title"] = "Employees";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<partial name="_Notification"></partial>
+@if (Model == null)
+{
+    <div class="col shadow m-md-3 pb-md-5" style="border-radius:10px; background-color: #E2D9D2;">
+        <div class="row mx-1 mx-md-5 justify-content-center py-5">
+            <div class="col-12 col-md-8 p-4" style="border-radius:10px; background-color: #c9beb5;">
+                <div class="row">
+                    <div class="col-12 text-center pt-4 pb-3">
+                        <i class="fas fa-regular fa-exclamation-circle " style="color: #ffff00; font-size: 3.7rem;"></i>
+                    </div>
+                    <div class="col-12 text-center">
+                        <h3><strong>No Employees Found</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="col shadow m-md-3 pb-md-5" style="border-radius:10px; background-color: #E2D9D2;">
+        <div class="row pt-3 m-md-2">
+            <div class="col-12 mb-3 d-inline-flex">
+                <h1 class="header me-4 me-md-5 mt-1">Employees</h1>
+                <a asp-controller="Admin" asp-action="AddEmployees" class="btn btn-sm btn-outline-secondary pt-3 pb-1 px-2">New Employee</a>
+            </div>
+            <div class="col-12 col-lg-5">
+                <form asp-controller="Admin" asp-action="GetEmployee">
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control Search-input" name="Id" placeholder="Search by National Id">
+                        <button class="btn btn-secondary" type="submit" id="button-addon2">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mx-auto">
+            @foreach (var user in Model)
+            {
+                <div class="col-sm-6 text-center mb-2">
+                    <div class="card border border-secondary border-2" style="border-radius:19px; background-color: #E2D9D2;">
+                        <div class="card-body">
+                            <i class="fa-solid fa-user mb-2 text-secondary" style="font-size: 3.2rem;"></i>
+                            <h5 class="card-title">@user.FirstName @user.LastName</h5>
+                            <h6 class="card-text mb-1">@user.Email</h6>
+                            <h6 class="card-text">@user.PhoneNumber</h6>
+                            <hr>
+                            <a asp-action="GetEmployee" asp-route-id="@user.NationalId" class="btn btn-secondary my-0">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,5 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManger
+@if (_signInManger.IsSignedIn(User))
+{
+    <h1 class="header me-4 me-md-5 mt-1">Welcome @User.FindFirst("FirstName").Value</h1>
+}
