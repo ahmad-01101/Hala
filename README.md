@@ -3,9 +3,9 @@
 App URL ---->  http://halatest-001-site1.jtempurl.com
 
 > [!NOTE]
-> The app does not contain SSL certificate. I published this app for testing purposes use the below credentials to use the application
-> I used free hosting to host this app so you might encounter slow performance
-> I couldn't use better hosting like Microsoft Azure(pay as you go) because it requires debit card and I dont have it
+> -The app does not contain SSL certificate. I published this app for testing purposes use the below credentials to use the application
+> -I used free hosting to host this app so you might encounter slow performance
+> -I couldn't use better hosting like Microsoft Azure(pay as you go) because it requires debit card and I dont have it
 
 email: testadmin@gmail.com \
 password: Admintest123@ \
@@ -13,26 +13,26 @@ to access the admin dashboard go to the following url after login with the above
 
 and to access the user screen you could also use the following credentials: \
 email: testuser@gmail.com \
-password: Testuser123@ \
+password: Testuser123@ 
 
 ## Overview
 Hala is a complete attendance system developed to enable the employees check in-out, Justify the delay or early out, and view attendances history. It also allows controlling and monitoring by managers/admins.
 ## Key Features
-:white_check_mark: The application is fully responsive
-:white_check_mark: Authentication (login and signup)
-:white_check_mark: Check-in
-:white_check_mark: Check-out
-:white_check_mark: Successful messages after checking in/out
-:white_check_mark: View My attendance
-:white_check_mark: Double check-in operation or double check-out is prevented
-:white_check_mark: User cannot check-out without checking-in first
-:white_check_mark: Any check-in after 8:30 AM will be considered late and must be justified with reason
-:white_check_mark: Any check-out before 3:00 PM will be considered early must be justified with reason
-:white_check_mark: add new employees (admin)
-:white_check_mark: update employees detail (admin)
-:white_check_mark: delete employees (admin)
-:white_check_mark: Successful messages after adding, updating, or deleting employees
-:white_check_mark: view employee all employees attendance (admin)
+:white_check_mark: The application is fully responsive\
+:white_check_mark: Authentication (login and signup)\
+:white_check_mark: Check-in\
+:white_check_mark: Check-out\
+:white_check_mark: Successful messages after checking in/out\
+:white_check_mark: View My attendance\
+:white_check_mark: Double check-in operation or double check-out is prevented\
+:white_check_mark: User cannot check-out without checking-in first\
+:white_check_mark: Any check-in after 8:30 AM will be considered late and must be justified with reason\
+:white_check_mark: Any check-out before 3:00 PM will be considered early must be justified with reason\
+:white_check_mark: add new employees (admin)\
+:white_check_mark: update employees detail (admin)\
+:white_check_mark: delete employees (admin)\
+:white_check_mark: Successful messages after adding, updating, or deleting employees\
+:white_check_mark: view employee all employees attendance (admin)\
 
 ## Instalation
 ### You must have the following in order to use this app locally:
