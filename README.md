@@ -3,9 +3,9 @@
 App URL ---->  http://halatest-001-site1.jtempurl.com
 
 > [!NOTE]
-> -The app does not contain SSL certificate. I published this app for testing purposes use the below credentials to use the application
-> -I used free hosting to host this app so you might encounter slow performance
-> -I couldn't use better hosting like Microsoft Azure(pay as you go) because it requires debit card and I dont have it
+> - The app does not contain SSL certificate. I published this app for testing purposes use the below credentials to use the application
+> - I used free hosting to host this app so you might encounter slow performance
+> - I couldn't use better hosting like Microsoft Azure(pay as you go) because it requires debit card and I dont have it
 
 email: testadmin@gmail.com \
 password: Admintest123@ \
