@@ -1,6 +1,6 @@
 # Hala
 ## App Testing
-App URL ---->  http://halatest-001-site1.jtempurl.com
+App URL ---> http://halatest-001-site1.jtempurl.com
 
 > [!NOTE]
 > - The app does not contain SSL certificate. I published this app for testing purposes use the below credentials to use the application
@@ -9,7 +9,7 @@ App URL ---->  http://halatest-001-site1.jtempurl.com
 
 email: testadmin@gmail.com \
 password: Admintest123@ \
-to access the admin dashboard go to the following url after login with the above credentials: http://halatest-001-site1.jtempurl.com/admin/employees
+to access the admin dashboard after you login with above credentials from sidebar click on admin button and you will be redirected to admin dashboard
 
 and to access the user screen you could also use the following credentials: \
 email: testuser@gmail.com \
@@ -72,4 +72,4 @@ INSERT INTO [AspNetUserRoles] (UserId, RoleId)
 VALUES ('paste here the id of the user you want to assign it to admin role', 1);
 ```
 and you are now have the admin authority 
-to access admin features navigate to the following URL after your localhost: /admin/employees 
+to access admin features from sidebar click on admin button and you will be redirected to admin dashboard
