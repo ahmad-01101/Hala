@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hala")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e32c8fcfbbe49a5fe3540bd605ee8ebe405d44cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hala")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hala")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

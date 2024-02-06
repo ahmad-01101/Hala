@@ -15,9 +15,10 @@ namespace Hala.Controllers
             _accountRepository = accountRepository;
         }
 
-        public IActionResult Login() { 
-        
-            return View(); 
+        public IActionResult Login()
+        {
+
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> Login(SignInUser signInUser)
@@ -47,7 +48,7 @@ namespace Hala.Controllers
 
             }
             return View(signInUser);
-            
+
         }
 
         public IActionResult Signup(bool isSuccess = false)
@@ -64,7 +65,7 @@ namespace Hala.Controllers
                 var result = await _accountRepository.CreateUser(signUpUser);
                 if (!result.Succeeded)
                 {
-                    foreach(var errorMessage in result.Errors)
+                    foreach (var errorMessage in result.Errors)
                     {
                         ModelState.AddModelError("", errorMessage.Description);
                     }

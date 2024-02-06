@@ -70,8 +70,8 @@ namespace Hala.Controllers
                     var NewCheckIn = new Attendance
                     {
 
-                        CheckedIn_at = DateTime.Now,
-                        Date = DateTime.Now,
+                        CheckedIn_at = DateTime.UtcNow.AddHours(+3),
+                        Date = DateTime.UtcNow.AddHours(+3),
                         //Means the user check-in only thru check-in button not a URL, this column is added for extra security
                         Isvalid = attendance.Isvalid,
                         // Present Not Valid (PRN) means the user checked-in on time and didn’t checked-out
@@ -105,9 +105,9 @@ namespace Hala.Controllers
                     var NewCheckIn = new Attendance
                     {
 
-                        CheckedIn_at = DateTime.Now,
-                        Date = DateTime.Now,
-                        LateCheckedIn_reason=attendance.LateCheckedIn_reason,
+                        CheckedIn_at = DateTime.UtcNow.AddHours(+3),
+                        Date = DateTime.UtcNow.AddHours(+3),
+                        LateCheckedIn_reason = attendance.LateCheckedIn_reason,
                         //Means the user check-in only thru check-in button not a URL, this column is added for extra security
                         Isvalid = attendance.Isvalid,
                         // Late Not Valid (LAN) means the user checked-in late and didn’t checked-out
@@ -141,7 +141,7 @@ namespace Hala.Controllers
                     {
                         // Present Valid (PRV) means the user checked-in on time and checked-out on time
                         CheckUser.Status = "PRV";
-                        CheckUser.CheckedOut_at = DateTime.Now;
+                        CheckUser.CheckedOut_at = DateTime.UtcNow.AddHours(+3);
                         halaDbContext.Update(CheckUser);
                         await halaDbContext.SaveChangesAsync();
                         // if the user checked-out successfully then Redirect to home with a successful message
@@ -151,7 +151,7 @@ namespace Hala.Controllers
                     {
                         // Late Valid (LAV) means the user checked-in late and checked-out on time
                         CheckUser.Status = "LAV";
-                        CheckUser.CheckedOut_at = DateTime.Now;
+                        CheckUser.CheckedOut_at = DateTime.UtcNow.AddHours(+3);
                         halaDbContext.Update(CheckUser);
                         await halaDbContext.SaveChangesAsync();
                         // if the user checked-out successfully then Redirect to home with a successful message
@@ -187,7 +187,7 @@ namespace Hala.Controllers
                         // Early Out Valid (EAV) means the user checked-in on time and checked-out early
                         CheckUser.Status = "EAV";
                         CheckUser.EarlyCheckedOut_reason = attendance.EarlyCheckedOut_reason;
-                        CheckUser.CheckedOut_at = DateTime.Now;
+                        CheckUser.CheckedOut_at = DateTime.UtcNow.AddHours(+3);
                         halaDbContext.Update(CheckUser);
                         await halaDbContext.SaveChangesAsync();
                         // if the user checked-out successfully then Redirect to home with a successful message
@@ -198,7 +198,7 @@ namespace Hala.Controllers
                         // Late-In, Early-Out (LL) means the user checked-in late and checked-out early
                         CheckUser.Status = "LL";
                         CheckUser.EarlyCheckedOut_reason = attendance.EarlyCheckedOut_reason;
-                        CheckUser.CheckedOut_at = DateTime.Now;
+                        CheckUser.CheckedOut_at = DateTime.UtcNow.AddHours(+3);
                         halaDbContext.Update(CheckUser);
                         await halaDbContext.SaveChangesAsync();
                         // if the user checked-out successfully then Redirect to home with a successful message

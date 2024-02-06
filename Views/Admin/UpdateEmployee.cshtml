@@ -1,6 +1,6 @@
 ﻿@model Hala.Models.EmployeesVM
 @{
-    ViewData["Title"] = "Update Employee";
+    ViewData["Title"] = "Update Employee - Admin";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="col shadow m-md-3 pb-md-5" style="border-radius:10px; background-color: #E2D9D2;">
@@ -20,62 +20,63 @@
             </div>
         </div>
     }
-    else{
-    <div class="row justify-content-center justify-content-md-between">
-        <div class="col mt-2 px-3 p-md-4 ">
-            <h2 class="mb-3 mb-md-4">Employee Details</h2>
-            <form method="post" asp-controller="Admin" asp-action="UpdateEmployee">
-                <div class="row g-2">
-                    <div class="col-md mt-md-0">
-                        <div class="form-floating">
-                            <input type="text" class="Search-input form-control" id="floatingInput" asp-for="FirstName">
-                            <label for="floatingInput">First Name</label>
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
+    else
+    {
+        <div class="row justify-content-center justify-content-md-between">
+            <div class="col mt-2 px-3 p-md-4 ">
+                <h2 class="mb-3 mb-md-4">Employee Details</h2>
+                <form method="post" asp-action="UpdateEmployee" asp-route-id="@Model.NationalId">
+                    <div class="row g-2">
+                        <div class="col-md mt-md-0">
+                            <div class="form-floating">
+                                <input type="text" class="Search-input form-control" id="floatingInput" asp-for="FirstName">
+                                <label for="floatingInput">First Name</label>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md mt-4 mt-md-0">
+                            <div class="form-floating">
+                                <input type="text" class="Search-input form-control" id="floatingInput" asp-for="LastName">
+                                <label for="floatingInput">Last Name</label>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md mt-4 mt-md-0">
-                        <div class="form-floating">
-                            <input type="text" class="Search-input form-control" id="floatingInput" asp-for="LastName">
-                            <label for="floatingInput">Last Name</label>
-                            <span asp-validation-for="LastName" class="text-danger"></span>
-                        </div>
+
+                    <div class="form-floating mt-4">
+                        <input type="email" class="Search-input form-control" id="floatingInput" asp-for="Email">
+                        <label for="floatingInput">Email</label>
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
-                </div>
+                    <div class="form-floating mt-4">
+                        <input type="number" class="Search-input form-control" id="floatingInput" asp-for="PhoneNumber">
+                        <label for="floatingInput">Phone</label>
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
 
-                <div class="form-floating mt-4">
-                    <input type="email" class="Search-input form-control" id="floatingInput" asp-for="Email">
-                    <label for="floatingInput">Email</label>
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-floating mt-4">
-                    <input type="number" class="Search-input form-control" id="floatingInput" asp-for="PhoneNumber">
-                    <label for="floatingInput">Phone</label>
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
-                
-                <div class="form-floating mt-4">
-                    <input type="number" class="Search-input form-control" id="floatingInput" asp-for="NationalId">
-                    <label for="floatingInput">National Id</label>
-                    <span asp-validation-for="NationalId" class="text-danger"></span>
-                </div>
+                    <div class="form-floating mt-4">
+                        <input type="number" class="Search-input form-control" id="floatingInput" asp-for="NationalId">
+                        <label for="floatingInput">National Id</label>
+                        <span asp-validation-for="NationalId" class="text-danger"></span>
+                    </div>
 
-                <div class="form-floating mt-4">
+                    <div class="form-floating mt-4">
                         <select asp-for="Gender" class="form-select Search-input" id="floatingInput" placeholder="specify your gender" aria-label="Default select example">
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
-                    <label for="floatingInput">Gender</label>
-                    <span asp-validation-for="Gender" class="text-danger"></span>
-                </div>
-
-                <div class="col-lg mt-4 text-center">
-                    <div class="form-floating">
-                        <button type="submit" class="btn btn-lg mb-md-0 mb-2 mx-1 btn-primary">Update</button>
-                        <a asp-action="GetEmployee" asp-route-id="@Model.NationalId" class="btn btn-lg mb-md-0 mx-1 btn-secondary">Cancel</a>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                        <label for="floatingInput">Gender</label>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
                     </div>
-                </div>
-            </form>
+
+                    <div class="col-lg mt-4 text-center">
+                        <div class="form-floating">
+                            <button type="submit" class="btn btn-lg mb-md-0 mb-2 mx-1 btn-primary">Update</button>
+                            <a asp-action="GetEmployee" asp-route-id="@Model.NationalId" class="btn btn-lg mb-md-0 mx-1 btn-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     }
 </div>

@@ -1,6 +1,6 @@
 ﻿@model List<Hala.Models.EmployeesVM>
 @{
-    ViewData["Title"] = "Update Employee";
+    ViewData["Title"] = "Add Employees - Admin";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 @if (Model.Count == 0)
@@ -31,7 +31,7 @@ else
             <div class="col-12 col-lg-5">
                 <form asp-controller="Admin" asp-action="GetEmployee">
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control Search-input" name="Id" placeholder="Search by Employee number">
+                        <input type="number" class="form-control Search-input" name="Id" placeholder="Search by National Id">
                         <button class="btn btn-secondary" type="submit" id="button-addon2">Search</button>
                     </div>
                 </form>

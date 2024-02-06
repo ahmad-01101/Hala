@@ -25,7 +25,7 @@ namespace Hala.Controllers
             _userManager = userManager;
             _accountRepository = accountRepository;
         }
-        public async Task<IActionResult> Employees(string Id, bool isDeleteed = false, bool isAdded = false) 
+        public async Task<IActionResult> Employees(string Id, bool isDeleteed = false, bool isAdded = false)
         {
             //ViewBag for successful message after deleting a user
             ViewBag.IsDeleteed = isDeleteed;
@@ -42,7 +42,7 @@ namespace Hala.Controllers
             return View();
         }
 
-        public async Task<IActionResult> GetEmployee(string Id, bool isUpdated = false) 
+        public async Task<IActionResult> GetEmployee(string Id, bool isUpdated = false)
         {
             //ViewBag for successful message after updating a user
             ViewBag.IsUpdated = isUpdated;
@@ -69,10 +69,10 @@ namespace Hala.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateEmployee(EmployeesVM employeesVM)
+        public async Task<IActionResult> UpdateEmployee(EmployeesVM employeesVM, string Id)
         {
             //update the employee details to the new passed details
-            var User = await _userManager.Users.Where(m => m.NationalId == employeesVM.NationalId).SingleOrDefaultAsync();
+            var User = await _userManager.Users.Where(m => m.NationalId == Id).SingleOrDefaultAsync();
             User.FirstName = employeesVM.FirstName;
             User.LastName = employeesVM.LastName;
             User.Email = employeesVM.Email;
@@ -135,14 +135,14 @@ namespace Hala.Controllers
         {
             return View();
         }
-         
+
         [HttpPost]
         public async Task<IActionResult> Attendance(Attendance attendance)
         {
 
             //return a specific attendance for a specific employee  based on the id and date that is being passed
-            var Attendance = await halaDbContext.Attendances.Include(m=>m.ApplicationUser)    
-            .Where(m => m.ApplicationUser.NationalId == attendance.ApplicationUser.NationalId 
+            var Attendance = await halaDbContext.Attendances.Include(m => m.ApplicationUser)
+            .Where(m => m.ApplicationUser.NationalId == attendance.ApplicationUser.NationalId
             && m.Date.Date == attendance.Date.Date).SingleOrDefaultAsync();
 
             return View(Attendance);

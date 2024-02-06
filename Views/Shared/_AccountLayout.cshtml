@@ -24,77 +24,77 @@
     input[type=number] {
         -moz-appearance: textfield;
     }
-* {
-    font-family: Arial, sans-serif;
-    background-color: #717171;
-}
-/* login page */
-.Login-Logo {
-    font-size: 2rem;
-    letter-spacing: .2px;
-    color: #fff;
-    text-decoration: none;
-}
 
-.Login-Logo:hover {
-    color: #fff;
-}
+    * {
+        font-family: Arial, sans-serif;
+        background-color: #717171;
+    }
+    /* login page */
+    .Login-Logo {
+        font-size: 2rem;
+        letter-spacing: .2px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .Login-Logo:hover {
+            color: #fff;
+        }
 
 
-.left-img-login {
+    .left-img-login {
         background-image: url('../img/loginBackground.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-}
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+    }
 
-.login-label {
-    color: #fff;
-}
+    .login-label {
+        color: #fff;
+    }
 
-.login-btn {
-    background-color: #a7a7a7;
-    font-size: 1.15rem;
-    color: #000;
-}
-
-    .login-btn:hover {
-        background-color: #ffffff;
-   
+    .login-btn {
+        background-color: #a7a7a7;
+        font-size: 1.15rem;
         color: #000;
     }
 
-.Rest-Right {
-    color: #a7a7a7;
-}
+        .login-btn:hover {
+            background-color: #ffffff;
+            color: #000;
+        }
 
-.Rest-Link {
-    text-decoration: none;
-    color: #fff;
-}
-
-    .Rest-Link:hover {
-        text-decoration-line: underline;
+    .Rest-Right {
         color: #a7a7a7;
     }
-/* signup section */
-.left-img-signup {
-    background-image: url('../img/loginBackground.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
 
-.container-hight {
-    height: 100vh;
-}
+    .Rest-Link {
+        text-decoration: none;
+        color: #fff;
+    }
 
-    .validation-text{
-        color:red;
+        .Rest-Link:hover {
+            text-decoration-line: underline;
+            color: #a7a7a7;
+        }
+    /* signup section */
+    .left-img-signup {
+        background-image: url('../img/loginBackground.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .container-hight {
+        height: 100vh;
+    }
+
+    .validation-text {
+        color: red;
     }
 </style>
-<body style="background-color: #713d1b;">
-        @RenderBody()
+<body>
+    @RenderBody()
 </body>
 </html>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,213 +17,244 @@
     <title>@ViewData["Title"] - Hala</title>
 </head>
 <style>
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
-}
-*{
-/* font-family: Verdana, sans-serif; */
-font-family: Arial, sans-serif;
-
-}
-/* navbar section */
-.nav-style{
-    background-color: #696969;
-    border-radius: 40px;
-}
-.Logo{
-    font-weight: 700;
-    font-size: 1.9rem; 
-    letter-spacing: .2px;
-    color: #fff;     
-    text-decoration: none;
-}
-.Logo:hover{
-    color: #fff;
-}
-.link-style{
-    font-weight: 100;
-    font-size: 1.2rem;
-    color: #fff; 
-    text-decoration: none;
-}
-.link-style:hover{
-    color: #af4600;
-}
-.account-btn{
-    border: none;
-    background-color: transparent;
-}
-.nav-icons{
-    color: #fff;
-}
-.nav-icons:hover{
-    color: #af4600;
-}
-.Logo-larg{
-    font-size: 3rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: #fff;
-}
-
-.Logo-larg:hover {
-    font-size: 3rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: #000;
-}
-/* login page */
-.Login-Logo{
-    font-size: 2rem;
-    letter-spacing: .2px;
-    color: #fff;
-    text-decoration: none;
-}
-.Login-Logo:hover{
-    color: #fff;
-}
-@@media (min-width:768px) {
-    .Login-Logo{
-        font-size: 2.3rem;
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
-}
-.left-img-login{
-    background-image: url('./img/loginImg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-}
-.login-label{
-    color: #fff;
-}
-.login-btn{
-    background-color: #a7a7a7;
-    font-size: 1.15rem;
-    color: #000;
-}
-.login-btn:hover{
-    background-color: #ffffff;
-    color: #000;
-}
-.Rest-Right{
-    color: #a7a7a7;
-}
-.Rest-Link{
-    text-decoration: none;
-    color: #fff;
-}
-.Rest-Link:hover{
-    text-decoration-line: underline;
-    color: #a7a7a7;
-}
-/* signup section */
-.left-img-signup{
-    background-image: url('./img/loginImg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.container-hight{
-    height: 100vh;
-}
-/* admin layout start */
 
-/* side navbar */
-.sidebar{
-    border-radius: 0px 40px 40px 0px;
-    background-color: #696969;
-}
-.row-hight{
-    height: 100vh;
-}
-.Login-Logo{
-    font-weight: 700;
-    font-size: 1.5rem;
-    letter-spacing: .2px;
-    color: #fff;
-    text-decoration: none;
-}
-.Login-Logo:hover{
-    color: #fff;
-}
-.side-link {
-    border: 1.5px rgba(0, 0, 0, 0.226) solid;
-    border-radius:15px;
-}
-.side-link a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.4rem;
-}
-.side-link:hover{
-    text-decoration: none;
-    color: #a2a2a2;
-    border-radius:15px;
-    background-color: #b0b0b0;
-}
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
 
-.side-link-out {
-border-radius: 15px;
-background-color: #DC3545;
-}
+    * {
+        /* font-family: Verdana, sans-serif; */
+        font-family: Arial, sans-serif;
+    }
+    /* navbar section */
+    .nav-style {
+        background-color: #696969;
+        border-radius: 40px;
+    }
 
-.side-link-out a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 1.4rem;
-}
+    .Logo {
+        font-weight: 700;
+        font-size: 1.9rem;
+        letter-spacing: .2px;
+        color: #fff;
+        text-decoration: none;
+    }
 
-.side-link-out:hover {
-    text-decoration: none;
-    border-radius: 15px;
-    background-color: #c70000;
-}
-.offSetbutton{
-    background-color: #713D1B;
-    border: 1px rgba(255, 255, 255, 0.419) solid;
-    border-radius: 3px;
-}
-.offSetbutton i{
-color: #fff;
-}
-.logout-button{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-}
-/* left side content */
-.AddItem-btn{
-    background-color: #713D1B;
-    color: #fff;
-}
-.AddItem-btn:hover{
-    background-color: #512A10;
-    color: #fff;
-}
-.AddItem-label{
-    color: #000;
-}
-.AddItem-input{
-    background-color: #E2D9D2;
-    border: 1px black solid;
-}
-.Cart-Container{
-    border-radius: 20px;   
-}
+        .Logo:hover {
+            color: #fff;
+        }
 
-.Search-input {
-    background-color: #E2D9D2;
-    border: 1px black solid;
-}
+    .link-style {
+        font-weight: 100;
+        font-size: 1.2rem;
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .link-style:hover {
+            color: #af4600;
+        }
+
+    .account-btn {
+        border: none;
+        background-color: transparent;
+    }
+
+    .nav-icons {
+        color: #fff;
+    }
+
+        .nav-icons:hover {
+            color: #af4600;
+        }
+
+    .Logo-larg {
+        font-size: 3rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #fff;
+    }
+
+        .Logo-larg:hover {
+            font-size: 3rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000;
+        }
+    /* login page */
+    .Login-Logo {
+        font-size: 2rem;
+        letter-spacing: .2px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .Login-Logo:hover {
+            color: #fff;
+        }
+
+    @@media (min-width:768px) {
+        .Login-Logo {
+            font-size: 2.3rem;
+        }
+    }
+
+    .left-img-login {
+        background-image: url('./img/loginImg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+    }
+
+    .login-label {
+        color: #fff;
+    }
+
+    .login-btn {
+        background-color: #a7a7a7;
+        font-size: 1.15rem;
+        color: #000;
+    }
+
+        .login-btn:hover {
+            background-color: #ffffff;
+            color: #000;
+        }
+
+    .Rest-Right {
+        color: #a7a7a7;
+    }
+
+    .Rest-Link {
+        text-decoration: none;
+        color: #fff;
+    }
+
+        .Rest-Link:hover {
+            text-decoration-line: underline;
+            color: #a7a7a7;
+        }
+    /* signup section */
+    .left-img-signup {
+        background-image: url('./img/loginImg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .container-hight {
+        height: 100vh;
+    }
+    /* admin layout start */
+
+    /* side navbar */
+    .sidebar {
+        border-radius: 0px 40px 40px 0px;
+        background-color: #696969;
+    }
+
+    .row-hight {
+        height: 100vh;
+    }
+
+    .Login-Logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: .2px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .Login-Logo:hover {
+            color: #fff;
+        }
+
+    .side-link {
+        border: 1.5px rgba(0, 0, 0, 0.226) solid;
+        border-radius: 15px;
+    }
+
+        .side-link a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.4rem;
+        }
+
+        .side-link:hover {
+            text-decoration: none;
+            color: #a2a2a2;
+            border-radius: 15px;
+            background-color: #b0b0b0;
+        }
+
+    .side-link-out {
+        border-radius: 15px;
+        background-color: #DC3545;
+    }
+
+        .side-link-out a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .side-link-out:hover {
+            text-decoration: none;
+            border-radius: 15px;
+            background-color: #c70000;
+        }
+
+    .offSetbutton {
+        background-color: #713D1B;
+        border: 1px rgba(255, 255, 255, 0.419) solid;
+        border-radius: 3px;
+    }
+
+        .offSetbutton i {
+            color: #fff;
+        }
+
+    .logout-button {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+    }
+    /* left side content */
+    .AddItem-btn {
+        background-color: #713D1B;
+        color: #fff;
+    }
+
+        .AddItem-btn:hover {
+            background-color: #512A10;
+            color: #fff;
+        }
+
+    .AddItem-label {
+        color: #000;
+    }
+
+    .AddItem-input {
+        background-color: #E2D9D2;
+        border: 1px black solid;
+    }
+
+    .Cart-Container {
+        border-radius: 20px;
+    }
+
+    .Search-input {
+        background-color: #E2D9D2;
+        border: 1px black solid;
+    }
 </style>
 <body style="background-color: #E2D9D2;">
     <div class="container-fluid">
@@ -255,6 +287,12 @@ color: #fff;
                             <li class="nav-list mb-3">
                                 <a asp-controller="Home" asp-action="Attendance" class="link-style">Attendance</a>
                             </li>
+                            @if (_signInManager.IsSignedIn(User) && User.IsInRole("admin"))
+                            {
+                                <li class="nav-list mb-3">
+                                    <a asp-controller="admin" asp-action="Employees" class="link-style">Admin</a>
+                                </li>
+                            }
                             <li class="nav-list mb-3">
                                 <a asp-controller="Account" asp-action="Logout" class="btn btn-danger btn-sm border border-4 border-danger px-3">
                                     Logout
@@ -278,6 +316,12 @@ color: #fff;
                     <li class="mb-4 side-link  py-2">
                         <a asp-controller="Home" asp-action="Attendance" class="">Attendance</a>
                     </li>
+                    @if (_signInManager.IsSignedIn(User) && User.IsInRole("admin"))
+                    {
+                        <li class="mb-4 side-link  py-2">
+                            <a asp-controller="admin" asp-action="Employees" class="">Admin</a>
+                        </li>
+                    }
                     <li class="mb-4 side-link-out py-2">
                         <a asp-controller="Account" asp-action="Logout" class="">Logout</a>
                     </li>
