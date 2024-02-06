@@ -1,6 +1,6 @@
 # Hala
 ## App Testing
-App URL ---> http://halatest-001-site1.jtempurl.com /
+App URL ---> http://halatest-001-site1.jtempurl.com <br />
 PDF user guide link --> https://drive.google.com/file/d/1s6VtIMUKTzjsuD3c5HTsN7cJhZYSsSnI/view?usp=sharing
 > [!NOTE]
 > - The app does not contain SSL certificate. I published this app for testing purposes use the below credentials to use the application
