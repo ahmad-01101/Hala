@@ -1,6 +1,6 @@
 # Hala
 ## App Testing
-App URL ---> http://halatest-001-site1.jtempurl.com <br />
+App URL ---> [http://halatest-001-site1.jtempurl.com <br />](http://ahmaddev-003-site1.gtempurl.com/)
 PDF user guide link --> https://drive.google.com/file/d/1s6VtIMUKTzjsuD3c5HTsN7cJhZYSsSnI/view?usp=sharing
 > [!NOTE]
 > - I used free hosting to host this app so you might encounter slow performance
