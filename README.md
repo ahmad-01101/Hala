@@ -1,18 +1,18 @@
 # Hala
 ## App Testing
-App URL ---> [http://halatest-001-site1.jtempurl.com <br />](http://ahmaddev-003-site1.gtempurl.com/)
+App URL ---> [[[http://halatest-001-site1.jtempurl.com <br />](http://ahmaddev-003-site1.gtempurl.com/)](https://ahmaddev-003-site1.gtempurl.com/)](https://ahmaddev-003-site1.gtempurl.com/)
 PDF user guide link --> https://drive.google.com/file/d/1s6VtIMUKTzjsuD3c5HTsN7cJhZYSsSnI/view?usp=sharing
 > [!NOTE]
 > - I used free hosting to host this app so you might encounter slow performance
 > - I couldn't use better hosting like Microsoft Azure(pay as you go) because it requires debit card and I dont have it
 > - Use the below credentials to use the application
 
-email: testadmin@gmail.com \
-password: Admintest123@ \
+email: testadmin@hala.com \
+password: Testadmin@123 \
 to access the admin dashboard after you login with above credentials from sidebar click on admin button and you will be redirected to admin dashboard
 
 and to access the user screen you could also use the following credentials: \
-email: testuser@gmail.com \
+email: testuser@hala.com \
 password: Testuser123@ 
 
 ## Overview
